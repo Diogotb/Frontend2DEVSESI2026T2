@@ -31,7 +31,7 @@ export class TarefaView{
         //limpar o a lista de tarefas
         this.listaTarefas.innerHTML = "";
 
-        tarefas.foreach( tarefa => {
+        tarefas.forEach( tarefa => {
             const li = document.createElement("li");
 
             if(tarefa.completed){
