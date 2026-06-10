@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Vaga } from '../../model/vaga.model';
 import { Apiservice } from '../../service/apiservice';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-painel-vagas',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './painel-vagas.html',
   styleUrl: './painel-vagas.scss',
 })
@@ -16,7 +17,9 @@ export class PainelVagas implements OnInit {
 
   constructor(private _apiService: Apiservice) {} //estabelece conexão quando a págian é carregada
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.listarVagas();
+  }
 
   // métodos READ ( Listar todas Vagas)
   listarVagas(): void {
@@ -61,7 +64,7 @@ export class PainelVagas implements OnInit {
   }
 
   //deletar
-  exluirVaga(id:any): void{
+  excluirVaga(id:any): void{
     this._apiService.deleteVaga(id).subscribe(
       ()=>{
         this.vaga = new Vaga(0,"","","",0);
