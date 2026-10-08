@@ -46,3 +46,7 @@ db.getCollection("livros").updateMany({paginas: {$gt: 400}},{$set: {edicao: "Lon
 //criar um indice para deixar a exibição em ordem crescente pelo nome do autor
 db.getCollection("livros").createIndex({autor:-1});
 db.getCollection("livros").find();
+
+db.getCollection("livros").deleteOne({titulo: "Cem Anos de Solidão"});
+
+mongodump --db bibliotecaDiogoTB --out C:/src/mongodb/backup/biblioteca_data;
